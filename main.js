@@ -25,6 +25,7 @@ var stream = tClient.stream('statuses/filter', { follow: `${config.user_id}` })
 console.log(`Fetching tweets from id: ${config.user_id}`)
 
 stream.on('tweet', function (tweet) {
+    if(tweet.retweeted_status) return
     let twitterLink = `https://twitter.com/${tweet.user.screen_name}/status/${tweet.id_str}`
     wClient.send(`${config.webhook_message} ${twitterLink}`)
   })
