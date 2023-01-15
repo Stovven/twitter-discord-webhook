@@ -15,12 +15,12 @@ const tClient = new Twitter({
 });
 
 tClient.get("account/verify_credentials", { skip_status: true })
-    .catch(err => {
+    .catch(err =>
         console.log(`Unable to login due to the following error:\n${err}`)
-    })
-    .then(res => {
-        console.log(`Logged in as '${res.data.name}'!`);
-    });
+    )
+    .then(res =>
+        console.log(`Logged in as '${res.data.name}'!`)
+    );
 
 let stream = tClient.stream("statuses/filter", { follow: config.user_id });
 
