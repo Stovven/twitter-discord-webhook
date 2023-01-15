@@ -26,9 +26,9 @@ let stream = tClient.stream("statuses/filter", { follow: config.user_id });
 
 console.log(`Fetching tweets from id '${config.user_id}'.`);
 
-stream.on("connected", _ => {
-  console.log("Successfully connected to Twitter!");
-});
+stream.on("connected", () =>
+    console.log("Successfully connected to Twitter!");
+);
 
 stream.on("tweet", twt => {
     if(twt.retweeted_status || twt.in_reply_to_status_id || twt.is_quote_status) return;
@@ -37,14 +37,14 @@ stream.on("tweet", twt => {
     wClient.send(`${config.webhook_message} ${twitterLink}`);
 });
   
-stream.on("disconnect", _ => {
-  console.log("Disconnected from twitter!");
-});
+stream.on("disconnect", () =>
+    console.log("Disconnected from twitter!");
+);
 
-stream.on("reconnect", function (_, _, _) => {
+stream.on("reconnect", () =>
     console.log("Reconnecting to Twitter!");
-});
+);
 
-process.on("uncaughtException", err => {
+process.on("uncaughtException", err =>
     console.log(`Something (bad) happened: ${err}`);
-});
+);
