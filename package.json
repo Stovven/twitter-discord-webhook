@@ -4,7 +4,7 @@
   "description": "Stalk a person and their Tweets by sending them all to a Discord webhook!",
   "main": "main.js",
   "author": "Stovven",
-  "license": "ISC",
+  "license": "AGPL",
   "dependencies": {
     "discord-webhook-node": "^1.1.8",
     "twit": "^2.2.11"
