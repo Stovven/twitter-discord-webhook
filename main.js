@@ -46,5 +46,5 @@ stream.on("reconnect", () =>
 );
 
 process.on("uncaughtException", err =>
-    console.log(`Something (bad) happened: ${err}`);
+    console.log(`Something (bad) happened: ${err}`)
 );
