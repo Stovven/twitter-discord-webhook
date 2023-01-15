@@ -27,7 +27,7 @@ let stream = tClient.stream("statuses/filter", { follow: config.user_id });
 console.log(`Fetching tweets from id '${config.user_id}'.`);
 
 stream.on("connected", () =>
-    console.log("Successfully connected to Twitter!");
+    console.log("Successfully connected to Twitter!")
 );
 
 stream.on("tweet", twt => {
@@ -38,11 +38,11 @@ stream.on("tweet", twt => {
 });
   
 stream.on("disconnect", () =>
-    console.log("Disconnected from twitter!");
+    console.log("Disconnected from twitter!")
 );
 
 stream.on("reconnect", () =>
-    console.log("Reconnecting to Twitter!");
+    console.log("Reconnecting to Twitter!")
 );
 
 process.on("uncaughtException", err =>
